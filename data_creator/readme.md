@@ -32,9 +32,24 @@ source setup.sh set_soft_links
 # **TLDR**: 
 ```
 # run these commands pose setting up the paths in global_variables.py and modified_RenderForCNN/global_variables.py
-
+# Crops of real images
 source setup.sh generate_all_crops
+# Rendering Synthetic Images
+python run_render.py
+# Preprocessing of Synthetic Images
+python preprocess_synthetic_images.py
+# generate dense keypoints
+source setup.sh generate_all_keypoints
+# generate dense keypoints for synthetic images
+python make_dense_pointset_syn.py --class_name chair
+# generate the auxiliary input disparity maps
+python make_disparity_syn.py --class_name chair
+# repeat the above two command for the other classes with corresponding class_name
+# finally train, val test subsets.
+source setup.sh generate_all_splits
+
 ```
+
 # Step 1: Image Processing
 
 Image processing is further divided into two parts, synthetic images, and real images.
@@ -50,13 +65,6 @@ python preprocess_real_images.py --dataset DATASET --class_name CLASS --subset S
 
 # Functionality for creating the cropped images + sparse keypoints for all classes, all datasets, all sumbsets has been provided:
 source setup.sh generate_all_crops
-python run_render.py
-python preprocess_synthetic_images.py
-source setup.sh generate_all_keypoints
-python make_dense_pointset_syn.py --class_name chair
-python make_disparity_syn.py --class_name chair
-# repeat the above two command for the other classes with corresponding class_name
-source setup.sh generate_all_splits
 
 ```
 
