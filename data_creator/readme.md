@@ -1,4 +1,6 @@
 # Data Creation Pipeline
+![Data_get](misc/ACMMM_datagen.png)
+
 
 The data processing pipeline majorly consists of three sub-modules: 
 
