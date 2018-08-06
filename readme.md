@@ -22,9 +22,17 @@ This repository is broadly divided into two parts:
 
 **Note:** For the Universal Correspondence Network, code for which has to be requested from [NEC-Labs](http://www.nec-labs.com/~mas/UCN/).
 
-Link to Arxiv:
+Link to Arxiv: [1808.01134](https://arxiv.org/abs/1808.01134)
 
 ## Citation
+```
+@article{ispanet-kundu-2018,
+title={iSPA-Net: Iterative Semantic Pose Alignment Network},
+author={Kundu, Jogendra Nath and Ganeshan, Aditya and MV, Rahul and Prakash, Aditya and Babu, R Venkatesh},
+booktitle = {arXiv preprint arXiv: 1808.01134 },
+year = {2018}
+}
+```
 
 ## Acknoledgement
 
