@@ -1,14 +1,16 @@
 # Object Pose Estimation using Dense Correspondence
 
 
-![overview](misc/acmmm.png)
-
 
 This repository contains the code for our works:
  1) **iSPA-NET**, accepted in ACM Multimedia Conference, 2018 (ACMMM18) - *Jogendra Nath Kundu, *Aditya Ganeshan, *Rahul MV, Aditya Prakash, R. Venkatesh Babu
 
+
+![overview](misc/acmmm.png)
+
  2)  **Object Pose Estimation Using Multi-View Keypoint Correspondence**, accepted in Geometry Meets Deep Learning Workshop, at ECCV 2018. - *Jogendra Nath Kundu, *Rahul MV, *Aditya Ganeshan, R. Venkatesh Babu
 
+![overview](/classifier_code/architecture_images/multi_view_arch.png)
 \* = equal Contribution
 
 This repository is broadly consists of:
