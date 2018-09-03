@@ -1,4 +1,4 @@
-# Object Pose Estimation using Dense Correspondence
+# Template Model Driven Pose Estimation
 
 
 
