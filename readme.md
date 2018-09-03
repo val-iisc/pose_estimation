@@ -1,4 +1,4 @@
-# Template Model Driven Pose Estimation
+# Template-Model Driven Pose Estimation
 
 
 
@@ -11,7 +11,7 @@ This repository contains the code for our works:
  2)  **Object Pose Estimation Using Multi-View Keypoint Correspondence**, accepted in Geometry Meets Deep Learning Workshop, at ECCV 2018. - *Jogendra Nath Kundu, *Rahul MV, *Aditya Ganeshan, R. Venkatesh Babu
 
 ![overview](/classifier_code/architecture_images/multi_view_arch.png)
-\* = equal Contribution
+###### \* = equal Contribution
 
 This repository is broadly consists of:
 
