@@ -1,4 +1,4 @@
-#Network Architecture
+# Network Architecture
 
 ![overview](architecture_images/ispa_net_arch.png)
 

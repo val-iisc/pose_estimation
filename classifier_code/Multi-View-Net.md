@@ -1,6 +1,6 @@
-#Network Architecture
+# Network Architecture
 
-![overview](architecture_images/multi_view_net.png)
+![overview](architecture_images/multi_view_arch.png)
 
 This repository contains the code for our work Object Pose Estimation Using Multi-View Keypoint Correspondence, accepted in Geometry Meets Deep Learning Workshop, at ECCV 2018.
 

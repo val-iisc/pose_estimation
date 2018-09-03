@@ -15,9 +15,11 @@ This repository contains the code for our work **iSPA-NET**, accepted in ACM Mul
 
 This repository is broadly divided into two parts:
 
-1) Data Creation: **Ready**
+1) Data Creation
 
-2) iSPA-Net Training and Testing code: **T.B.A.**
+2) iSPA-Net Training and Testing code
+
+3) Pretrained Weights: run download\_pretrained\_weights.sh
 
 
 **Note:** For the Universal Correspondence Network, code for which has to be requested from [NEC-Labs](http://www.nec-labs.com/~mas/UCN/).
@@ -34,10 +36,5 @@ year = {2018}
 }
 ```
 
-## Acknoledgement
-
-Parts of code are yet to be cleaned and added!
-
-Stay tuned for more!
 
  
