@@ -16,9 +16,10 @@ def get_img_loc(cur_file):
     info = cur_file.split('_')
     if info[0] == 'pascal3D':
         img_loc = os.path.join(gv.processed_image_loc,info[0],info[1]+'_'+info[2])
+        file_type = info[3]
     else:
         img_loc = os.path.join(gv.processed_image_loc,info[0],info[1])
-    file_type = info[3]
+        file_type = info[3].split('.')[0]
     return img_loc,file_type
 
 def get_datasets(dataset,task):
@@ -30,15 +31,20 @@ def get_datasets(dataset,task):
         return [dataset]
     
 def make_final_subset(task,dataset, class_name,easy):
+    
     datasets = get_datasets(dataset,task)
     all_files = os.listdir(os.path.join(gv.data_dir,'image_lists',task))
     all_files = [x for x in all_files if class_name in x]
+    
     all_files = [x for x in all_files if x.split('_')[0] in datasets]
+    
+    
     if easy:
         easy_str = 'easy'
         all_files = [x for x in all_files if 'easy' in x]
     else:
         easy_str = 'hard'
+    
     final_files = {}
     for x in ['train','test','val']:
         final_files[x] = open(os.path.join(gv.data_dir,'image_lists','final_files','_'.join([class_name,task,dataset,easy_str,x])+'.txt'),'w')
@@ -53,6 +59,13 @@ def make_final_subset(task,dataset, class_name,easy):
 # Now, it may be useful to split the dataset in a different way. For example, you may use the entirity of Imagenet subset of pascal3D. 
 # in such a situation, combine the files as shown above, but with a different train/test/val split.
 
+def str2bool(str_):
+    if str_ == 'True':
+        return True
+    else:
+        return False
+    
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--task', default='pose', help='The dataset for processing.')
@@ -61,7 +74,8 @@ def main():
     parser.add_argument('--easy', default='True', help='The dataset the class to processed')
     
     args = parser.parse_args()
-    make_final_subset(args.task,args.datasets, args.class_name,bool(args.easy))
+
+    make_final_subset(args.task,args.datasets, args.class_name,str2bool(args.easy))
 
 if __name__ == '__main__':
     main()

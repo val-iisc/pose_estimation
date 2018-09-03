@@ -1,28 +1,30 @@
-# iSPA-Net: Iterative Semantic Pose Alignment Network.
-
-*Jogendra Nath Kundu, *Aditya Ganeshan, *Rahul MV, Aditya Prakash, R. Venkatesh Babu
-
-* = equal Contribution
+# Object Pose Estimation using Dense Correspondence
 
 
 ![overview](misc/acmmm.png)
 
 
-This repository contains the code for our work **iSPA-NET**, accepted in ACM Multimedia Conference, 2018 (ACMMM18).
+This repository contains the code for our works:
+ 1) **iSPA-NET**, accepted in ACM Multimedia Conference, 2018 (ACMMM18) - *Jogendra Nath Kundu, *Aditya Ganeshan, *Rahul MV, Aditya Prakash, R. Venkatesh Babu
 
-![results](misc/acmmm_results.png)
+ 2)  **Object Pose Estimation Using Multi-View Keypoint Correspondence**, accepted in Geometry Meets Deep Learning Workshop, at ECCV 2018. - *Jogendra Nath Kundu, *Rahul MV, *Aditya Ganeshan, R. Venkatesh Babu
+
+\* = equal Contribution
+
+This repository is broadly consists of:
+
+1) Data Creation : [data_creator](https://github.com/val-iisc/iSPA-Net/tree/master/data_creator)
+
+2) Universal Correspondence Network Training Code : [ucn_code](https://github.com/val-iisc/iSPA-Net/tree/master/ucn_code)
+
+3) iSPA-Net Training and Testing code : [classifier_code](https://github.com/val-iisc/iSPA-Net/tree/master/classifier_code)
+	 - Refer to classifiercode/iSPA-Net.md for more details
+
+4) Multi-View Keypoint based Pose Estimation - Training and Testing code : [classifier_code](https://github.com/val-iisc/iSPA-Net/tree/master/classifier_code)
+	- Refer to classifiercode/Multi-View-Net.md for more details
 
 
-This repository is broadly divided into two parts:
-
-1) Data Creation
-
-2) iSPA-Net Training and Testing code
-
-3) Pretrained Weights: run download\_pretrained\_weights.sh
-
-
-**Note:** For the Universal Correspondence Network, code for which has to be requested from [NEC-Labs](http://www.nec-labs.com/~mas/UCN/).
+**Note:** For the Universal Correspondence Network, caffe code for which has to be requested from [NEC-Labs](http://www.nec-labs.com/~mas/UCN/).
 
 Link to Arxiv: [1808.01134](https://arxiv.org/abs/1808.01134)
 
@@ -36,5 +38,3 @@ year = {2018}
 }
 ```
 
-
- 

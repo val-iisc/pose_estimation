@@ -14,8 +14,8 @@ def keypoint_5_fetcher(data_dir,class_name,pose=False):
     coords = sio.loadmat(os.path.join(data_dir,class_name,'coords.mat'))['coords']
     coords = np.copy(coords[:,:gv.skeleton_size[class_name],:,:])
     _,_,seat = gv.skeleton_map[class_name]
-    dir_to_angle = {'right_forward': (45,0,0),'right_backward': (135,0,0),
-                    'left_forward': (315,0,0), 'left_backward': (225,0,0)}
+    dir_to_angle = {'right_forward': (str(45),str(0),str(0)),'right_backward': (str(135),str(0),str(0)),
+                    'left_forward': (str(315),str(0),str(0)), 'left_backward': (str(225),str(0),str(0))}
     def get_bbox(img_name,coords=coords):
         cur_id = int(img_name.split('.')[0])
         cur_coords = np.copy(coords[:,:,:3,cur_id-1])

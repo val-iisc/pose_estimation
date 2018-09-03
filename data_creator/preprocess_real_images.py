@@ -59,44 +59,47 @@ def make_crops(dataset,class_name,subset):
         coords = get_coords(img_name)
         img = cv2.imread(os.path.join(img_loc,img_name))
         for jter,bbox in enumerate(bboxes):
-            cur_coords = np.copy(coords[jter])
-            bbox[1] = np.clip(bbox[1],0,img.shape[0])
-            bbox[3] = np.clip(bbox[3],0,img.shape[0])
-            bbox[0] = np.clip(bbox[0],0,img.shape[1])
-            bbox[2] = np.clip(bbox[2],0,img.shape[1])
-            new_img = img[bbox[1]:bbox[3],bbox[0]:bbox[2],:]
-            cur_coords[:,1] -= bbox[1] #+10
-            cur_coords[:,0] -= bbox[0]#+10
+            try:
+                cur_coords = np.copy(coords[jter])
+                bbox[1] = np.clip(bbox[1],0,img.shape[0])
+                bbox[3] = np.clip(bbox[3],0,img.shape[0])
+                bbox[0] = np.clip(bbox[0],0,img.shape[1])
+                bbox[2] = np.clip(bbox[2],0,img.shape[1])
+                new_img = img[bbox[1]:bbox[3],bbox[0]:bbox[2],:]
+                cur_coords[:,1] -= bbox[1] #+10
+                cur_coords[:,0] -= bbox[0]#+10
 
-            new_h,new_w,_ = new_img.shape
-            if new_h>new_w:
-                ratio = 224/float(new_h)
-            else:
-                ratio = 224/float(new_w)
-            # Now cv2 resize according to ratio #for coords too
-            # print(ratio,new_h,new_w)
-            # print(bbox)
-            new_img = cv2.resize(new_img, (int(ratio*new_w), int(ratio*new_h)), interpolation = cv2.INTER_CUBIC)
-            # Resize the coords too
-            cur_coords[:,:2] = ratio*cur_coords[:,:2]
-            # Now pad the image
-            new_h,new_w,_ = new_img.shape
-            pad_h = (224-new_h)
-            pad_h_start = pad_h//2
-            pad_h_stop = pad_h - pad_h_start
-            pad_w = (224-new_w)
-            pad_w_start = pad_w//2
-            pad_w_stop = pad_w - pad_w_start
-            new_img= cv2.copyMakeBorder(new_img,pad_h_start,pad_h_stop,pad_w_start,pad_w_stop,cv2.BORDER_CONSTANT,value=0)
-            # add the effect of pad on the coords
-            cur_coords[:,1] += pad_h_start
-            cur_coords[:,0] +=pad_w_start
-            save_name = img_name.split('.')[0] + '_' + str(jter)
+                new_h,new_w,_ = new_img.shape
+                if new_h>new_w:
+                    ratio = 224/float(new_h)
+                else:
+                    ratio = 224/float(new_w)
+                # Now cv2 resize according to ratio #for coords too
+                # print(ratio,new_h,new_w)
+                # print(bbox)
+                new_img = cv2.resize(new_img, (int(ratio*new_w), int(ratio*new_h)), interpolation = cv2.INTER_CUBIC)
+                # Resize the coords too
+                cur_coords[:,:2] = ratio*cur_coords[:,:2]
+                # Now pad the image
+                new_h,new_w,_ = new_img.shape
+                pad_h = (224-new_h)
+                pad_h_start = pad_h//2
+                pad_h_stop = pad_h - pad_h_start
+                pad_w = (224-new_w)
+                pad_w_start = pad_w//2
+                pad_w_stop = pad_w - pad_w_start
+                new_img= cv2.copyMakeBorder(new_img,pad_h_start,pad_h_stop,pad_w_start,pad_w_stop,cv2.BORDER_CONSTANT,value=0)
+                # add the effect of pad on the coords
+                cur_coords[:,1] += pad_h_start
+                cur_coords[:,0] +=pad_w_start
+                save_name = img_name.split('.')[0] + '_' + str(jter)
 
-            # save all
-            info_file.write(save_name+'\n')
-            np.save(os.path.join(keypoint_save_dir, save_name + '.npy'),cur_coords)
-            cv2.imwrite(os.path.join(img_save_dir, save_name + '.png'),new_img)
+                # save all
+                info_file.write(save_name+'\n')
+                np.save(os.path.join(keypoint_save_dir, save_name + '.npy'),cur_coords)
+                cv2.imwrite(os.path.join(img_save_dir, save_name + '.png'),new_img)
+            except:
+                pass
     info_file.close()
     
             

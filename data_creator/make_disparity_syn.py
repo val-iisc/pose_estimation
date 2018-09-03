@@ -28,6 +28,7 @@ def make_disparity(class_name):
     try:
         key_3d = run_proj.get_keypoints(model_file)
     except:
+        # asdf
         key_3d = np.load('/data1/aditya/clean_content/data/sample_points/'+model_synset+'_'+template_model+'.npy')
     
     image_list = os.listdir(model_images_loc)

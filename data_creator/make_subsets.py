@@ -37,7 +37,7 @@ def get_subsets(dataset,class_name,subset,data_dir):
     keys = [x[:-3] for x in keys]
 
     if dataset == 'keypoint-5':
-        test_list = open(os.path.join(data_dir,class_name+'test.txt')).readlines()
+        test_list = open(os.path.join(data_dir,class_name,'test.txt')).readlines()
         test_list = [x.split('/')[-1].strip() for x in test_list]
     elif dataset == 'pascal3D':
         if subset == 'pascal':
@@ -48,7 +48,7 @@ def get_subsets(dataset,class_name,subset,data_dir):
             test_list = open(os.path.join(data_dir, 'Image_sets',class_name+'_'+subset+'_val.txt')).readlines()
             test_list = [x.strip() for x in test_list]
     elif dataset == 'ObjectNet3D':
-        test_list = open(os.path.join(data_dir,'Image_sets','val.txt'))
+        test_list = open(os.path.join(data_dir,'Image_sets','test.txt'))
         test_list = set([x.strip() for x in test_list])
         
     train_val = [key for key in keys if key not in test_list]
@@ -87,11 +87,14 @@ def make_subsets(dataset, class_name, subset):
             img_type = 'val'
         elif img_key in train_list:
             img_type = 'train'
-        out_file_pose = info_file_list['pose_'+img_type]
-        out_file_pose_easy = info_file_list_easy['pose_'+img_type+'_easy']
+       
+        out_file_correspondence = info_file_list['correspondence_'+img_type]
+        
+        
         if not dataset == 'keypoint-5':
-            out_file_correspondence = info_file_list['correspondence_'+img_type]
             out_file_correspondence_easy = info_file_list_easy['correspondence_'+img_type+'_easy']
+            out_file_pose = info_file_list['pose_'+img_type]
+            out_file_pose_easy = info_file_list_easy['pose_'+img_type+'_easy']
 
         jter = int(img_name.split('_')[-1])
         print(poses[jter])
@@ -99,17 +102,20 @@ def make_subsets(dataset, class_name, subset):
         pose = poses[jter]
         attr = attrs[jter]
         #save_name = img_name.split('.')[0] + '_' + str(jter)
+        print "img_name", pose
         pose_str = ' '.join([img_name, pose[0],pose[1],pose[2]])
         
         # for pose:
-        out_file_pose.write(pose_str+'\n')
-        if attr[0] ==0 and attr[1] ==0 and attr[2] ==0 and not dataset=='keypoint-5':
-            out_file_pose_easy.write(pose_str+'\n') 
+        if not dataset == 'keypoint-5':
+            out_file_pose.write(pose_str+'\n')
+            if attr[0] ==0 and attr[1] ==0 and attr[2] ==0 and not dataset=='keypoint-5':
+                out_file_pose_easy.write(pose_str+'\n') 
         # for correspondence:
         if img_name in correspondence_image_list:
             out_file_correspondence.write(pose_str+'\n')
-            if attr[0] ==0 and attr[1] ==0 and attr[2] ==0 and not dataset=='keypoint-5':
-                out_file_correspondence_easy.write(pose_str+'\n') 
+            if not dataset == 'keypoint-5':
+                if attr[0] ==0 and attr[1] ==0 and attr[2] ==0:
+                    out_file_correspondence_easy.write(pose_str+'\n') 
             
                 
     for info_file in info_file_list.values():

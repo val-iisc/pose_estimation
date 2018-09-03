@@ -27,7 +27,7 @@ import random
 import numpy as np
 
 # Load rendering light parameters
-sys.path.insert(0,'/home/babu/126/pose_estimation/data_creator/modified_RenderForCNN')
+sys.path.insert(0,'/home/babu/126/aditya/pose_estimation/data_creator/modified_RenderForCNN')
 from global_variables import *
 
 

@@ -30,7 +30,21 @@ pascal_keypoint_names = {'chair' : ['leg_lower_left','leg_lower_right','leg_uppe
          'diningtable': ['top_lower_left','top_upper_left','top_upper_right','top_lower_right',
          'leg_lower_left','leg_upper_left','leg_upper_right','leg_lower_right'],
          'bed':['frame_back1','frame_front1','mattress4','mattress1','bedpost_top4',
-         'frame_back2','frame_front2','mattress3','mattress2','bedpost_top3'] }
+         'frame_back2','frame_front2','mattress3','mattress2','bedpost_top3'],
+         'car':[None,'left_front_light',None,'upper_left_windshield','upper_right_rearwindow',None,
+               # 0          1            2          3                       4                5
+         "right_back_trunk",None,None,None,None,None,None,None,None,None,'left_front_wheel',
+              # 6           7     8   9    10   11   12   13    14   15       16 
+         'left_back_wheel',None,'right_front_light',None,'upper_right_windshield',
+             # 17           18        19             20        21 
+         'upper_left_rearwindow',None,'left_back_trunk',None,None,None,None,None,None,None,None,
+             # 22                 23         24           25    26     27 28   29   30    31 32
+         None,'right_front_wheel','right_back_wheel']}
+          # 33      34                 35
+         #'car':['left_front_wheel', 'left_back_wheel', 'right_front_wheel','right_back_wheel',
+         #'upper_left_windshield','upper_right_windshield','upper_left_rearwindow',
+         #'upper_right_rea	rwindow', 'left_front_light','right_front_light', 'left_back_trunk',
+         #'right_back_trunk']}
 
 # will be solved soon
 objnet_poor_mat = ['n00000000_10.JPEG','n00000000_127.JPEG','n03761084_13462.JPEG',
@@ -52,14 +66,18 @@ skeleton_map = {'chair': ([[4,0],[5,1],[6,2],[7,3],[4,5],[5,6],[6,7],[7,4],[7,8]
                 'diningtable': ([[0,4],[3,7],[2,6],[1,5],[0,3],[3,2],[2,1],[1,0],[8,10],[9,11]],
                          ['L','R','R','L','C','R','C','L','C','C'],[0,3,2,1]),
                'sofa' : ([[3,1],[10,8],[11,7],[4,0],[3,10],[10,9],[9,2],[2,3],[2,6],[6,13],[13,9],[15,14],[6,4],[4,5],[5,3],[13,11],[11,12],[12,10],[0,1],[1,8],[8,7],[7,0],[15,16],[16,17]],
-                        ['L','R','RR','LL','C','R','C','L','L','C','R','C','L','L','L','R','R','R','LL','C','RR','O','C','C'],[3,10,9,2])}
+                        ['L','R','RR','LL','C','R','C','L','L','C','R','C','L','L','L','R','R','R','LL','C','RR','O','C','C'],[3,10,9,2]),
+                'car' : ([[3,16],[4,17],[21,34],[22,35],[1,3],[3,4],[4,6],[6,17],[17,16],[16,1],[19,21],[21,22],[22,24],[24,35],[35,34],[34,19],[1,19],[3,21],[4,22],[6,24], ],
+                        ['LL',    'LL',  'RR',    'RR',  'L',  'L',  'L',  'LL',   'LL',   'LL',  'R',    'R',    'R',    'RR',    'RR',  'RR',   'C',   'C',   'C',   'C'],[3,4,21,22])}
 
-leg_range = {'chair':range(40), 'swivelchair':range(40), 'bed':list(range(40))+list(range(110,140)), 'table':range(40), 'diningtable':range(40), 'sofa':list(range(40))+list(range(110,120))}
+leg_range = {'chair':range(40), 'swivelchair':range(40), 'bed':list(range(40))+list(range(110,140)), 'table':range(40), 'diningtable':range(40), 'sofa':list(range(40))+list(range(110,120)),
+             'car': list(range(40))+list(range(70,100)) + list(range(130,160))}
 img_size = (224,224)
 
 syn_template = {'chair': ('13fdf00cde077f562f6f52615fb75fca','03001627'),
             'swivelchair': ('1e92f53f3a191323d42b9650f19dd425','03001627'),
             'sofa':('1fd45c57ab27cb6cea65c47b660136e7','04256520'),
             'bed':('7c8eb4ab1f2c8bfa2fb46fb8b9b1ac9f','02818832'),
-            'table':('e41da371550711697062f2d72cde5c95','04379243')
+            'table':('e41da371550711697062f2d72cde5c95','04379243'),
+            'car':('1aeee7288b89ec1cc805dfe4ca9f2fdb','02958343')
             }

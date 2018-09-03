@@ -12,7 +12,7 @@ import Imath
 import OpenEXR 
 
 
-def get_keypoints(shape_file,k = 10000):
+def get_keypoints(shape_file,k = 100000):
     mesh = trimesh.load(shape_file)
     if type(mesh) == list:
         for j in range(1,len(mesh)):
