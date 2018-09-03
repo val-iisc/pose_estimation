@@ -1,0 +1,29 @@
+stepsize: 20000
+
+base_lr: 0.00009
+
+#test_interval: 100
+
+weight_decay: 0.0001
+
+net: "googlenet_classifier_conv_stn.prototxt"
+
+snapshot_prefix: "./output/classifier_ucn_enhanced_conv_stn/snap"
+
+snapshot: 500
+
+gamma: 0.1
+
+solver_mode: GPU
+
+#test_iter: 3
+
+lr_policy: "step"
+
+display: 20
+
+momentum: 0.9
+
+solver_type: ADAM
+
+max_iter: 50000
