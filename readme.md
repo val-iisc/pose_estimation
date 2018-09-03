@@ -1,6 +1,6 @@
 # iSPA-Net: Iterative Semantic Pose Alignment Network.
 
-*Jogendra Nath Kundu, *Aditya Ganeshan, *Rahul Venkk, Aditya Prakash, R. Venkatesh Babu
+*Jogendra Nath Kundu, *Aditya Ganeshan, *Rahul M V, Aditya Prakash, R. Venkatesh Babu
 
 * = equal Contribution
 
