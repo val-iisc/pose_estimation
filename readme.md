@@ -20,10 +20,10 @@ This repository is broadly consists of:
 2) Universal Correspondence Network Training Code : [ucn_code](https://github.com/val-iisc/iSPA-Net/tree/master/ucn_code)
 
 3) iSPA-Net Training and Testing code : [classifier_code](https://github.com/val-iisc/iSPA-Net/tree/master/classifier_code)
-	 - Refer to classifiercode/iSPA-Net.md for more details
+	 - Refer to [classifier\_code/iSPA-Net.md](https://github.com/val-iisc/iSPA-Net/blob/master/classifier_code/iSPA-Net.md) for more details
 
 4) Multi-View Keypoint based Pose Estimation - Training and Testing code : [classifier_code](https://github.com/val-iisc/iSPA-Net/tree/master/classifier_code)
-	- Refer to classifiercode/Multi-View-Net.md for more details
+	- Refer to [classifier\_code/Multi-View-Net.md](https://github.com/val-iisc/iSPA-Net/blob/master/classifier_code/Multi-View-Net.md) for more details
 
 
 **Note:** For the Universal Correspondence Network, caffe code for which has to be requested from [NEC-Labs](http://www.nec-labs.com/~mas/UCN/).
