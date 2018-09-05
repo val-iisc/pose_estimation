@@ -13,7 +13,7 @@ This repository contains the code for our works:
 ![overview](/classifier_code/architecture_images/multi_view_arch.png)
 ###### \* = equal Contribution
 
-This repository is broadly consists of:
+This repository broadly consists of:
 
 1) Data Creation : [data_creator](https://github.com/val-iisc/iSPA-Net/tree/master/data_creator)
 
