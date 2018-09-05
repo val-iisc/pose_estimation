@@ -28,9 +28,9 @@ This repository broadly consists of:
 
 **Note:** For the Universal Correspondence Network, caffe code for which has to be requested from [NEC-Labs](http://www.nec-labs.com/~mas/UCN/).
 
-iSPA-Net Link to Arxiv: [1808.01134](https://arxiv.org/abs/1808.01134)
+iSPA-Net Link to Arxiv: [1808.01134](https://arxiv.org/pdf/1808.01134.pdf)
 
-Object Pose Estimation Using Multi-View Keypoint Correspondence - Link to Arxiv: To be updated
+Object Pose Estimation Using Multi-View Keypoint Correspondence - [1809.00553](https://arxiv.org/pdf/1809.00553.pdf)
 
 ## Citation
 ```
@@ -44,7 +44,7 @@ year = {2018}
 #@article{ispanet-kundu-2018,
 title={Object Pose Estimation Using Multi-View Keypoint Correspondence},
 author={Kundu, Jogendra Nath and MV, Rahul and Ganeshan, Aditya and Babu, R Venkatesh},
-booktitle = {arXiv preprint arXiv: <> },
+booktitle = {arXiv preprint arXiv: 1809.00553 },
 year = {2018}
 }
 ```
