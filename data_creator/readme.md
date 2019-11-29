@@ -1,4 +1,7 @@
 # Data Creation Pipeline
+
+#### Note: Please check the updates at the end of readme.
+
 ![Data_get](misc/ACMMM_datagen.png)
 
 
@@ -130,4 +133,13 @@ python make_subsets.py --dataset DATASET --class_name CLASS --subset SUBSET
 # Functionality for creating all the splits for all classes, all datasets, all subsets has been provided:
 source setup.sh generate_all_subsets
 ```
+
+# Update:
+
+There were some issues experienced by other users of this repository. The important changes/suggestions according to those issues are listed below:
+
+1) The Anchor Files:
+The anchor files for the synthetic models, (which have been manually annotated) were not released with the original repository. Here is the [link](https://drive.google.com/open?id=1_UUmDrM-Bg5KMbHJS-qtiscIsYkWi1_a) to those anchor files. Please use them accordingly. 
+
+2) As found by [@yruoxi](https://github.com/yruoxi) in this issue [#4](https://github.com/val-iisc/pose_estimation/issues/4), the code may fail with some versions of trimesh. Known working version: 2.24.2. (Thank you @yruoxi!). 
 
